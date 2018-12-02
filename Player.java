@@ -31,10 +31,12 @@ public class Player {
 		Piece = thePiece;
 	}
 
+	//Increment money: Player.setMoney(Player.getMoney+/-[value of money]);
 	public void setMoney(int mon) {
 		Money = mon;
 	}
-
+	
+	//Increment location: Player.setLocation(Player.getLocation+/-[Movement value]);
 	public void setLocation(int loc) {
 		location = loc;
 	}
