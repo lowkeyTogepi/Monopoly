@@ -39,27 +39,18 @@ public class Game {
 	public void game() throws IOException, NoSuchFieldException {
 		boolean play = true;
 		while(play) {		
-			chestCards.initCards();
-			chanceCard.initCards();
+			initChestCards();
+			initChanceCards();
 			askForPlayers();
 			run();
 			play = ConsoleUI.promptForBool("Do you want to play again? Y/N", "Y", "N");
 		}	
 	}
-
-	private void askForPlayers() throws IOException {
-		playerCount = ConsoleUI.promptForInt("How many people are playing?", 2, 8);
-		int mon = 1500;
-		for(int i=0;i<playerCount;i++) {
-			players[i] = new Player();
-			String playerName = ConsoleUI.promptForInput("What is your name?", false);
-			players[i].init(playerName, PieceNames.BATTLESHIP, mon);
-		}
-	}
 	
 	public void run() throws NoSuchFieldException, IOException {
 		boolean gameOver = false;
 		while(!gameOver) {
+			System.out.println("");
 			System.out.println(players[turn].Name + ", your turn" );
 			if(players[turn].inJail == true) {
 				jailedAction();
@@ -67,16 +58,15 @@ public class Game {
 			else {
 				roll();
 				players[turn].doubleCount = 0;
-				turn++;
-				if(turn == playerCount) {
-					turn = 0;
-				}
-
+			}
+			turn++;
+			if(turn == playerCount) {
+				turn = 0;
 			}
 		}
 	}
 
-	private void jailedAction() throws IOException, NoSuchFieldException {
+	public void jailedAction() throws IOException, NoSuchFieldException {
 		String[] jailOptions = new String[4];
 		jailOptions[0] = "Roll for double";
 		jailOptions[1] = "Use 'Get out of Jail Free' card";
@@ -87,6 +77,7 @@ public class Game {
 		case 0:
 			int dice1 = rnd.nextInt(6);
 			int dice2 = rnd.nextInt(6);
+			System.out.println("You rolled " + dice1 + " and " + dice2);
 			if(dice1 == dice2) {
 				int roll = dice1+dice2;
 				moveToSpace(roll);
@@ -359,5 +350,54 @@ public class Game {
 	
 	private void initProp() {
 		
+	}
+	
+	private void initChestCards() {
+		chestCards.communityChestCard[0] = "Advance to 'Go'";
+		chestCards.communityChestCard[1] = "Bank error in your favor. Collect $200";
+		chestCards.communityChestCard[2] = "Doctor's fee. Pay $50";
+		chestCards.communityChestCard[3] = "From sale of stock you get $50";
+		chestCards.communityChestCard[4] = "Get out of Jail Free";
+		chestCards.communityChestCard[5] = "Go to Jail";
+		chestCards.communityChestCard[6] = "Grand Opera Night. Collect $50 from each player for opening night seats";
+		chestCards.communityChestCard[7] = "Holiday Fund matures. Receive $100";
+		chestCards.communityChestCard[8] = "Income tax refund. Collect $20";
+		chestCards.communityChestCard[9] = "It's your birthday. Collect $10 from each player";
+		chestCards.communityChestCard[10] = "Life insurance matures. Collect $100";
+		chestCards.communityChestCard[11] = "Hospital fees. Pay $50";
+		chestCards.communityChestCard[12] = "School fees. Pay $50";
+		chestCards.communityChestCard[13] = "Receive $25 consultancy fee";
+		chestCards.communityChestCard[14] = "You are assessed for street repairs";
+		chestCards.communityChestCard[15] = "You have won second prize in a beauty contest. Collect $10";
+		chestCards.communityChestCard[16] = "You inherit $1000";
+	}	
+	
+	public void initChanceCards() {
+		chanceCard.chanceCards[0] = "Advance to 'Go'";
+		chanceCard.chanceCards[1] = "Advance to Illinois Ave.";
+		chanceCard.chanceCards[2] = "Advance to St. Charles Place";
+		chanceCard.chanceCards[3] = "Advance token to nearest Utility. If unowned, you may buy. If owned, throw a dice and pay owner a total 10 times the amount thrown";
+		chanceCard.chanceCards[4] = "Advanc token to nearest Railroad. if unowned, you may buy. If owned, pay double the rental";
+		chanceCard.chanceCards[5] = "Bank pays you dividend of $50";
+		chanceCard.chanceCards[6] = "Get out of Jail Free";
+		chanceCard.chanceCards[7] = "Go back three spaces";
+		chanceCard.chanceCards[8] = "Go to Jail";
+		chanceCard.chanceCards[9] = "Make general repairs on all your property. For each house pay $25. For each hotel, pay $100";
+		chanceCard.chanceCards[10] = "Pay poor tax of $15";
+		chanceCard.chanceCards[11] = "Take a trip to Reading Railroad";
+		chanceCard.chanceCards[12] = "Take a walk on the Boardwalk. Advance to Boardwalk";
+		chanceCard.chanceCards[13] = "You have been elected Chairman of the Board. Pay each player $50";
+		chanceCard.chanceCards[14] = "Your building loan matures. Receive $150";
+		chanceCard.chanceCards[15] = "You have won a crossword competition. Collect $100";
+	}
+	
+	private void askForPlayers() throws IOException {
+		playerCount = ConsoleUI.promptForInt("How many people are playing?", 2, 8);
+		int mon = 1500;
+		for(int i=0;i<playerCount;i++) {
+			players[i] = new Player();
+			String playerName = ConsoleUI.promptForInput("What is your name?", false);
+			players[i].init(playerName, PieceNames.BATTLESHIP, mon);
+		}
 	}
 }
