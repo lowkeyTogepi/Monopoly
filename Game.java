@@ -2,6 +2,8 @@ package edu.neumont.csc110;
 
 import java.io.IOException;
 import java.util.Random;
+
+import edu.neumont.csc110.Player.PieceNames;
 import interfaces.ConsoleUI;
 
 public class Game {
@@ -12,6 +14,7 @@ public class Game {
 	CommunityChestCard chestCards = new CommunityChestCard();
 	
 	Player[] players = new Player[8];
+	int playerCount = 0;
 	public int turn = 0;
 	
 	public void printStartMenu() throws IOException, NoSuchFieldException {
@@ -41,19 +44,19 @@ public class Game {
 	}
 
 	private void askForPlayers() throws IOException {
-		int playerCount = ConsoleUI.promptForInt("How many people are playing?", 2, 8);
+		playerCount = ConsoleUI.promptForInt("How many people are playing?", 2, 8);
 		int mon = 1500;
 		for(int i=0;i<playerCount;i++) {
 			players[i] = new Player();
 			String playerName = ConsoleUI.promptForInput("What is your name?", false);
-			players[i].init(playerName, null, mon);
+			players[i].init(playerName, PieceNames.BATTLESHIP, mon);
 		}
 	}
 	
 	public void run() throws NoSuchFieldException, IOException {
 		boolean gameOver = false;
 		while(!gameOver) {
-			System.out.println(players[turn].Name + "(" + players[turn].Piece + "), your turn" );
+			System.out.println(players[turn].Name + ", your turn" );
 			if(players[turn].location == 10) {
 				jailedAction();
 			}
@@ -63,6 +66,9 @@ public class Game {
 				//spaceAction();
 				printGameMenu();
 				turn++;
+				if(turn == playerCount) {
+					turn = 0;
+				}
 			}
 		}
 	}
@@ -99,17 +105,33 @@ public class Game {
 	}
 
 	public int roll() {
-		int dice1 = rnd.nextInt(6);
-		int dice2 = rnd.nextInt(6);
+		int dice1 = rnd.nextInt(6)+1;
+		int dice2 = rnd.nextInt(6)+1;
 		if(dice1 == dice2) {
 			players[turn].doubleCount++;
 		}
+		System.out.println("You rolled " + dice1 + " and " + dice2 + " for " + (dice1+dice2));
 		int roll = dice1+dice2;
 		return roll;
 	}
 	
-	public void printGameMenu() {
-		
+	public void printGameMenu() throws IOException {
+		if(players[turn].location != 10) {
+			String[] options = new String[2];
+			options[0] = "Buy Property";
+			options[1] = "Sell Property";
+			int selection = ConsoleUI.promptForMenuSelection(options, false);
+			switch(selection) {
+			case 0:
+				buyProperty();
+				break;
+			case 1:
+				sellProperty();
+				break;
+			default:
+				System.out.println("Not an option");
+			}
+		}
 	}
 	
 	public void moveToSpace(int roll) {
