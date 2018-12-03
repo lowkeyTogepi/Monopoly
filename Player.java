@@ -6,6 +6,7 @@ public class Player {
 	int Money;
 	int location;
 	int numJailCards;
+	int doubleCount;
 
 	public Player() {
 		Name = "Default";
@@ -13,6 +14,7 @@ public class Player {
 		Money = 0;
 		location = 0;
 		numJailCards = 0;
+		doubleCount = 0;
 	}
 
 	public void init(String playerName, PieceNames thePiece, int mon) {
@@ -21,6 +23,7 @@ public class Player {
 		Money = 0;
 		location = 0;
 		numJailCards = 0;
+		doubleCount = 0;
 	}
 
 	public void setName(String playerName) {
