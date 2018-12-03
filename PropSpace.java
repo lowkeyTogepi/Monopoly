@@ -148,4 +148,8 @@ public class PropSpace extends BoardSpace {
 	public void payMorgage() {
 		morgaged=false;
 	}
+	
+	public String toString() {
+		return propName+" Costs $"+getRent()+" and has "+getHouse()+" houses.";
+	}
 }
