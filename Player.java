@@ -1,4 +1,4 @@
-package parra.alexis.monopoly;
+package edu.neumont.csc110;
 
 public class Player {
 	String Name;
@@ -7,6 +7,7 @@ public class Player {
 	int location;
 	int numJailCards;
 	int doubleCount;
+	boolean inJail;
 
 	public Player() {
 		Name = "Default";
@@ -15,6 +16,7 @@ public class Player {
 		location = 0;
 		numJailCards = 0;
 		doubleCount = 0;
+		inJail = false;
 	}
 
 	public void init(String playerName, PieceNames thePiece, int mon) {
@@ -24,6 +26,7 @@ public class Player {
 		location = 0;
 		numJailCards = 0;
 		doubleCount = 0;
+		inJail = false;
 	}
 
 	public void setName(String playerName) {
@@ -34,12 +37,10 @@ public class Player {
 		Piece = thePiece;
 	}
 
-	//Increment money: Player.setMoney(Player.getMoney+/-[value of money]);
 	public void setMoney(int mon) {
 		Money = mon;
 	}
-	
-	//Increment location: Player.setLocation(Player.getLocation+/-[Movement value]);
+
 	public void setLocation(int loc) {
 		location = loc;
 	}
@@ -80,5 +81,8 @@ public class Player {
 				+ "Money: " + Money + "\n"
 				+ "Piece: " + Piece;
 	}
-
+	
+	public enum PieceNames {
+		TOPHAT, THIMBLE, IRON, SHOE, BATTLESHIP, DOG, CAT, WHEELBARROW, DEFAULT
+	}
 }
