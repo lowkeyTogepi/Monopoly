@@ -358,27 +358,6 @@ public class Game {
 	
 	
 	private void initProp() {
-		//propSpace[0].init("Mediterranean Avenue", purchasePrice, baseRent, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, houseCost, morgageCost);
-		//propSpace[1].init("Baltic Avenue", purchasePrice, baseRent, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, houseCost, morgageCost);
-		//propSpace[2].init("Oriental Avenue", purchasePrice, baseRent, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, houseCost, morgageCost);
-		//propSpace[3].init("Vermont Avenue", purchasePrice, baseRent, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, houseCost, morgageCost);
-		//propSpace[4].init("Connecticut Avenue", purchasePrice, baseRent, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, houseCost, morgageCost);
-		//propSpace[5].init("St. Charles Place", purchasePrice, baseRent, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, houseCost, morgageCost);
-		//propSpace[6].init("States Avenue", purchasePrice, baseRent, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, houseCost, morgageCost);
-		//propSpace[7].init("Virginia Avenue", purchasePrice, baseRent, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, houseCost, morgageCost);
-		//propSpace[8].init("St. James Place", purchasePrice, baseRent, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, houseCost, morgageCost);
-		//propSpace[9].init("Tennessee Avenue", purchasePrice, baseRent, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, houseCost, morgageCost);
-		//propSpace[10].init("New York Avenue", purchasePrice, baseRent, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, houseCost, morgageCost);
-		//propSpace[11].init("Kentucky Avenue", purchasePrice, baseRent, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, houseCost, morgageCost);
-		//propSpace[12].init("Indiana Avenue", purchasePrice, baseRent, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, houseCost, morgageCost);
-		//propSpace[13].init("Illinois Avenue", purchasePrice, baseRent, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, houseCost, morgageCost);
-		//propSpace[14].init("Atlantic Avenue", purchasePrice, baseRent, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, houseCost, morgageCost);
-		//propSpace[15].init("Ventnor Avenue", purchasePrice, baseRent, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, houseCost, morgageCost);
-		//propSpace[16].init("Marvin Gardens", purchasePrice, baseRent, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, houseCost, morgageCost);
-		//propSpace[17].init("Pacific Avenue", purchasePrice, baseRent, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, houseCost, morgageCost);
-		//propSpace[18].init("North Carolina Avenue", purchasePrice, baseRent, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, houseCost, morgageCost);
-		//propSpace[19].init("Pennsylvania Avenue", purchasePrice, baseRent, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, houseCost, morgageCost);
-		//propSpace[20].init("Park Place", purchasePrice, baseRent, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, houseCost, morgageCost);
-		//propSpace[21].init("Boardwalk", purchasePrice, baseRent, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, houseCost, morgageCost);
+		
 	}
 }
